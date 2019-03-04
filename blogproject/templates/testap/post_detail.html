@@ -1,0 +1,8 @@
+{%extends 'testap/base.html'%}
+<title>{%block title_block%}{{post.title}}{%endblock%}</title>
+{%block body_block%}
+<h2>{{post.title}}</h2>
+<h3>Published on</h3>: <h4>{{post.publish}} by {{post.author|title}}</h4>
+<p id='date'>{{post.body}}</p>
+<h1><a class='btn btn-primary btn-lg'  href='/share/{{post.id}}'>Share Post by Email</a></h1>
+{%endblock%}

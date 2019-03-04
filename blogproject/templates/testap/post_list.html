@@ -1,0 +1,11 @@
+{%extends 'testap/base.html'%}
+  <title>{%block title_block%}HOME{%endblock%}</title>
+{%block body_block%}
+<h1>Blog for learning</h1>
+{% for post in post_list %}
+<a href='{{post.get_absolute_url}}'><h2>{{post.title}}</h2></a>
+<h3>Published on: </h3><h4>{{post.publish}} by {{post.author|title}}</h4>
+<p id='date'>{{post.body|truncatewords:30|linebreaks}}</p>
+{%endfor%}
+{%include 'testap/pagination.html' with page=post_list%}
+{%endblock%}

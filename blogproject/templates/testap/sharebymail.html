@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Share Post by Email</title>
+    <link rel="stylesheet" href="{% static "css/bootstrap.css"%}">
+    <link rel="stylesheet" href="{% static "css/blog.css"%}">
+  </head>
+  <body>
+      {% if sent%}
+      <h1>Email Successfully Sent</h1>
+      <h2>Post: {{post.title}} shared by email   !!!!!</h2>
+      <h3>Thanks for being here!!!</h3>
+      {%else%}
+      <h1>Share Post "{{post.title}}"  by Email</h1>
+      <form method="post" align='center'>
+        {{form.as_p}}
+        {%csrf_token%}
+        <input class='btn btn-primary btn-lg' type="Submit"  value="Send Mail">
+    </form>
+    {%endif%}
+  </body>
+</html>
